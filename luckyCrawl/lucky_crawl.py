@@ -1,5 +1,7 @@
 import requests
 import json
+
+
 def tofile(d, f):
     print("愿望ID:" + d["info"]["id"], file=f)
     print("愿望内容:" + d["info"]["content"], file=f)
@@ -8,6 +10,7 @@ def tofile(d, f):
     print("学校：" + d["user"]["school"], file=f)
     print("学院:" + d["user"]["room"], file=f)
     print("-------------------------------\n", file=f)
+
 
 url = 'https://web.wutnews.net/lucky/index/change'
 headers1 = {
@@ -20,8 +23,8 @@ headers1 = {
     " Hm_lpvt_6937a39e5483039406a2ae45f8f1f392=1520517679"
 }
 #全局变量
-total = 0#记录不重复的愿望数
-l=[]
+total = 0  #记录不重复的愿望数
+foo = {}  #辅助变量，用于保证爬取的愿望不重复。
 with open("huashi.txt", 'a') as ccnu_f:
     with open("wuli.txt", "a") as wuli_f:
         with open("wishes.txt", "a") as f:
@@ -34,9 +37,9 @@ with open("huashi.txt", 'a') as ccnu_f:
                 r1 = requests.get(url, headers=headers1)
                 d = json.loads(r1.content.decode())
                 wish_id = d["info"]["id"]
-                if wish_id not in l:
+                if foo.get(wish_id, None) is None:
                     total += 1  #记录不同愿望数量
-                    l.append(wish_id)
+                    foo[wish_id] = True
                     print("total:", total)
                     print(wish_id)
                     tofile(d, f)
