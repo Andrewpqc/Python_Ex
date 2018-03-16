@@ -1,18 +1,16 @@
 import requests
 import time
-url1 = "http://127.0.0.1:8080/api/grade/?xnm=2017&xqm=3"
+url1 = "http://120.77.220.239:8002/api/grade/?xnm=2017&xqm=3"
 headers1 = {
     'user-agent':
     'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'
     ' (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36',
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
     "Bigipserverpool":"89172160.20480.0000",
-    "Jsessionid":"37F99F819B71901E170D30B83BCD1E69",
+    "Jsessionid":"45D7E7DA2E7C05218ED95B70D99A9761",
     "Sid":"2016211129"
 }
 
-#请求首先，得到JSESSIONID
-# r1 = requests.get(url1, headers=headers1)
 data={
 "_search":False,
 "nd":"1520853209939",

@@ -1,0 +1,35 @@
+LC3 conference with the attendance of LinuxCon, ContainerCon and CloudOpen, which is the top
+open source conference in the world, was held in Beijing on June, 19, with a two-day session.
+It was its first presence to China after it had been held in North America, Europe and Japan
+in the past few years. Linux 4.12-rc6 was released on the same day, and voice from Linux Foundation
+shows us a few prospective new features will be considered in Linux kernel development at the
+conference. Jim Zemblin, the Executive Director of Linux Foundation as well as the chair of
+the conference, told the reporter of Linux Story in the Chinese Media exclusive interview at
+the news conference that Formal Verification (Wikipedia) would be built-in Linux kernel for the
+purpose of more security. He said, the improved security credibility of Linux kernel was helpful
+in supporting more new features in Linux as well as the long-term development. However, it will
+be a hard work. We think the feature of Formal Verification will be implemented in some independent
+core modules first. It is learnt that the definition of Formal Verification is to use formal methods
+of mathematics to prove or disprove the correctness of a certain or some formal specifications or
+properties. Meanwhile, Logical Formal Verification is a systematic verification process, which
+uses formal methods of mathematics to verify that if the design is implemented thoroughly. Today,
+the main Formal Verification software programs include Coq, Isabelle , Metamath ,TLA+ and so on.
+The process of Formal Verification can be used to prove that there is no certain bug in one system
+or the system respects to some specifications. The limitation of traditional software testing methods
+is that limited test cases cannot cover almost infinite state space, and without considering the exception
+condition of test environment often leads to a loss by hidden danger in the production environment. We
+cannot promise a none-bug-system even if with more test cases. And in the other hand, we eagerly expect
+a system without bugs in some key application scenarios. NO BUG is a concept difficult to strictly define
+so that trying to exclude SPECIFIC TYPE of BUGs is more practicable. The Formal Verification method can
+prove that if a system respects to a certain design specification, if it does not contain unknown
+type of bugs and it can satisfy certain functions or properties with formal methods of mathematics
+to business logic or code logic. The method of Formal Verification has a history of more than 30 years.
+Nowadays, Formal Verification is applied in the fields of chip design(1), cloud computing(2), operation
+system(3), compiler(4) and Blockchain(5). If what Jim said in his plan could be implemented successfully,
+the security level of lightweight isolation such as Docker would be comparable to traditional
+virtualization, to which the improvement of Linux kernel security would not only benefit the development
+of cloud computing and container of Linux, but also Docker. This might be part of the future development
+direction of Linux. But Jim also said that there were many difficulties ahead and there was still no
+detailed schedule on Formal Verification at present. Finally, we welcome any guys who are interested
+in Formal Verification to join our exchange group, our service account of WeChat Media Platform
+is bootingman, we also expect your brief introduction before your join.
