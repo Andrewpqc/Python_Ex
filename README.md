@@ -1,2 +1,2 @@
-# My Daily Exercises in Python
-This is a repository of a mess!
+# python exercises
+some python code for every day exercises!
