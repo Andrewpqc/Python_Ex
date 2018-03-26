@@ -15,7 +15,6 @@ pipe=conn.pipeline()
 """
 
 
-
 def add_update_contact(conn, user, contact):
     """
     向列表中添加或者更新近期联系人
@@ -31,7 +30,8 @@ def add_update_contact(conn, user, contact):
     pipe.ltrim(recent_contact_list, 0, 2)  # 只保留最新的3个最近联系人
     pipe.execute()  # 执行上述命令
 
-def delete_contact(conn,user,contact):
+
+def delete_contact(conn, user, contact):
     """
     删除每一个联系人
     :param conn: 连接对象
@@ -39,11 +39,11 @@ def delete_contact(conn,user,contact):
     :param contact: 待删除的联系人
     :return: None
     """
-    recent_contact_list="recent:%s"%user
-    conn.lrem(recent_contact_list,contact)
+    recent_contact_list = "recent:%s" % user
+    conn.lrem(recent_contact_list, contact)
 
 
-def fetch_autocomplete_list(conn,user,prefix):
+def fetch_autocomplete_list(conn, user, prefix):
     """
     获取指定用户，特定前缀的最近联系人列表
     :param conn: 连接对象
@@ -52,29 +52,28 @@ def fetch_autocomplete_list(conn,user,prefix):
     :return: 匹配的用户列表
     """
     recent_contact_list = "recent:%s" % user
-    candidates=conn.lrange(recent_contact_list,0,-1)
+    candidates = conn.lrange(recent_contact_list, 0, -1)
 
-    matches=[]
+    matches = []
     for candidate in candidates:
         print(candidate, "dd")
         if candidate.decode().lower().startswith(prefix):
             matches.append(candidate)
     return matches
 
+
 if __name__ == '__main__':
     from redis import Redis
     conn = Redis()
-    add_update_contact(conn,"benjim","jjjj")
-    add_update_contact(conn,"benjim","jjk")
-    add_update_contact(conn,"benjim","jjllll")
-    add_update_contact(conn,"benjim","kkk")
-    add_update_contact(conn,"benjim","jk")
-    add_update_contact(conn,"benjim","kjkllllk")
-    add_update_contact(conn,"benjim","jjk")
-    recent=fetch_autocomplete_list(conn,"benjim","j")
+    add_update_contact(conn, "benjim", "jjjj")
+    add_update_contact(conn, "benjim", "jjk")
+    add_update_contact(conn, "benjim", "jjllll")
+    add_update_contact(conn, "benjim", "kkk")
+    add_update_contact(conn, "benjim", "jk")
+    add_update_contact(conn, "benjim", "kjkllllk")
+    add_update_contact(conn, "benjim", "jjk")
+    recent = fetch_autocomplete_list(conn, "benjim", "j")
     for i in recent:
         print(i.decode())
 
     conn.delete("recent:benjim")
-
-
